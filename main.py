@@ -7,12 +7,12 @@ def main():
          ('q0', '#'): ('End', '#', 'R'),
          ('End', ''): ('qa', '', 'R'),
 
-         ('q0', '0'): ('FindDelimiter0', 'X', 'R'),
-         ('FindDelimiter0', '#'): ('Check0', '#', 'R'),
+         ('q0', '0'): ('q1', 'X', 'R'),
+         ('q1', '#'): ('Check0', '#', 'R'),
          ('Check0', '0'): ('FindLeftmost', 'X', 'L'),
 
-         ('q0', '1'): ('FindDelimiter1', 'X', 'R'),
-         ('FindDelimiter1', '#'): ('Check1', '#', 'R'),
+         ('q0', '1'): ('q2', 'X', 'R'),
+         ('q2', '#'): ('Check1', '#', 'R'),
          ('Check1', '1'): ('FindLeftmost', 'X', 'L'),
 
          ('FindLeftmost', '0'): ('FindLeftmost', '0', 'L'),
@@ -22,14 +22,14 @@ def main():
          ('FindLeftmost', ''): ('FindNext', '', 'R'),
 
          ('FindNext', 'X'): ('FindNext', 'X', 'R'),
-         ('FindNext', '0'): ('FindDelimiter0', 'X', 'R'),
-         ('FindNext', '1'): ('FindDelimiter1', 'X', 'R'),
+         ('FindNext', '0'): ('q1', 'X', 'R'),
+         ('FindNext', '1'): ('q2', 'X', 'R'),
          ('FindNext', '#'): ('End', '#', 'R'),
 
-         ('FindDelimiter0', '0'): ('FindDelimiter0', '0', 'R'),
-         ('FindDelimiter0', '1'): ('FindDelimiter0', '1', 'R'),
-         ('FindDelimiter1', '0'): ('FindDelimiter1', '0', 'R'),
-         ('FindDelimiter1', '1'): ('FindDelimiter1', '1', 'R'),
+         ('q1', '0'): ('q1', '0', 'R'),
+         ('q1', '1'): ('q1', '1', 'R'),
+         ('q2', '0'): ('q2', '0', 'R'),
+         ('q2', '1'): ('q2', '1', 'R'),
 
          ('Check0', 'X'): ('Check0', 'X', 'R'),
          ('Check1', 'X'): ('Check1', 'X', 'R'),
@@ -38,7 +38,7 @@ def main():
      }
  )
     
-    user_input = str(input())
+    user_input = str(input("Enter a word : "))
 
 
     finish = False
