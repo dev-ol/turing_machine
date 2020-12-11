@@ -2,7 +2,7 @@ from turing_machine import TuringMachine
 
 def main():
 
-    w_hash_w = TuringMachine(
+    custom_TM = TuringMachine(
      {
          ('q0', '#'): ('End', '#', 'R'),
          ('End', ''): ('qa', '', 'R'),
@@ -41,14 +41,13 @@ def main():
     user_input = str(input("Enter a word : "))
 
 
-    finish = False
+    finish = False # use to check if the machine has reached a final state
 
 
-    execution = w_hash_w.run(user_input)
+    execution = custom_TM.run(user_input)
 
     while finish != True :
         context = next(execution)
-       # print(context[0])
         info =context[1]
         print("state : {0}".format(info["state"]))
 
